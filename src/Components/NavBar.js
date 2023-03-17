@@ -1,8 +1,10 @@
 import Link from 'next/link';
-import logo from '../Components/logo.png';
+import logo from '../Components/logo.png'; 
 import Image from 'next/image';
 import styles from '../Components/navbar.module.css';
+import { fetcher } from 'lib/api';
 const Navbar = () => {
+
   return (
     <nav className={`flex h-14 justify-between items-center ${styles.custombg} p-4`}>
       <div className="flex items-center ml-20">
@@ -23,7 +25,7 @@ const Navbar = () => {
         </div>
       
         <div className="flex items-center bg-white text-blue-400 ml-5 rounded py-1 px-3 mr-20 hover:bg-orange-400 transition delay-600">
-  <span className="px-3">(661) 384-7070 </span>
+  <span className="px-3"></span>
 </div>
     </div>
     </nav>
@@ -31,3 +33,13 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+export async function getServerSideProps() {
+  
+
+  return {
+    props: {
+      articles: data,
+    },
+  };
+}
