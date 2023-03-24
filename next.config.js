@@ -16,4 +16,5 @@ module.exports = {
 
 
 
+module.exports = { images: { domains: ['http://127.0.0.1:1337'], formats: ['image/avif', 'image/webp'], }, }
 

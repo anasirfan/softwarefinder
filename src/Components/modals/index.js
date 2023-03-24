@@ -18,6 +18,7 @@ import {
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import CloseIcon from '@mui/icons-material/Close';
+import Form from '../form';
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -82,15 +83,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WatchDemoModal = ({ closeModal }) => {
+const WatchDemoModal = ({ closeModal , product }) => {
   const classes = useStyles();
-
   const handleClose = () => {
     closeModal();
   };
-  
-
-  return (
+  console.log('product:', product); 
+  return (  
     <Modal
       open={true}
       onClose={handleClose}
@@ -106,7 +105,7 @@ const WatchDemoModal = ({ closeModal }) => {
       <Slide direction="down" in={true} mountOnEnter unmountOnExit>
         <Paper className={classes.paper}>
           <Box className={`flex flex-row space-x-96 mx-5`}>
-            <Image src={wdlogo} alt="Logo" className={`${classes.logo}`} />
+         
             <div>
             <Typography variant="h6" className={classes.headerText}>
             Join thousands of other professionals and get personalized recommendations based on what businesses like you are using. There is no obligation to buy.
@@ -128,57 +127,7 @@ const WatchDemoModal = ({ closeModal }) => {
               <Typography variant="h6" className={classes.formHeader}>
                 Get Our Best Software Advice Through SMS
               </Typography>
-              <form>
-                <div className='flex flex-col space-y-3 -mr-5 w-full'>
-                  <div item xs={12} sm={6}>
-                    <TextField
-                      id="name"
-                      label="Name"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </div>
-                  <div item xs={12} sm={6}>
-                    <TextField
-                      id="phone"
-                      label="Phone"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </div>
-                  <div item xs={12} sm={6}>
-                    <TextField
-                      id="email"
-                      label="Email"
-                      variant="outlined"
-                      fullWidth
-                    />
-                  </div>
-                  <div item xs={12} sm={6}>
-                    <TextField
-                      id="message"
-                      label="Message"
-                      variant="outlined"
-                      fullWidth
-                      multiline
-                      rows={4}
-                    />
-                  </div>
-                  <div item xs={12}>
-                    <FormControlLabel
-                      control={<Checkbox name="checkedB" color="primary" />}
-                      label="Get our best software advice through SMS"
-                    />
-                  </div>
-                </div>
-                <Button
-                  variant="contained"
-                  color="primary"
-                  className={classes.submitButton}
-                >
-                  Submit
-                </Button>
-              </form>
+             <Form/>
             </Box>
           </Box>
           </div>

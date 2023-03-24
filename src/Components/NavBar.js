@@ -6,9 +6,9 @@ import { fetcher } from 'lib/api';
 const Navbar = () => {
 
   return (
-    <nav className={`flex h-14 justify-between items-center ${styles.custombg} p-4`}>
+    <nav className={`flex h-16 justify-between items-center ${styles.custombg} p-4`}>
       <div className="flex items-center ml-20">
-        <Image src={logo} alt="Logo" className="w-52 h-18 pr-5" />
+        <Image src={logo} alt="Logo" className="w-60 h-18 pr-5" />
         
       </div>
         <div className="flex items-center">
@@ -25,7 +25,7 @@ const Navbar = () => {
         </div>
       
         <div className="flex items-center bg-white text-blue-400 ml-5 rounded py-1 px-3 mr-20 hover:bg-orange-400 transition delay-600">
-  <span className="px-3"></span>
+  <span className="px-3">(661) 384-7070</span>
 </div>
     </div>
     </nav>
