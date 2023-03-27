@@ -118,7 +118,7 @@ const WatchDemoModal = ({ closeModal , product }) => {
           <Divider />
           <div className='flex flex-row space-x-4 w-full'>
             <div className='w-1/3 h-full'>
-              <Image src= {wdlogo}/>
+               
             </div>
          
           <Box className={classes.main}>
