@@ -83,12 +83,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const WatchDemoModal = ({ closeModal , product }) => {
+ export const WatchDemoModal = ({ product, closeModal }) => {
   const classes = useStyles();
   const handleClose = () => {
     closeModal();
   };
-  console.log('product:', product); 
+  
   return (  
     <Modal
       open={true}
@@ -105,7 +105,10 @@ const WatchDemoModal = ({ closeModal , product }) => {
       <Slide direction="down" in={true} mountOnEnter unmountOnExit>
         <Paper className={classes.paper}>
           <Box className={`flex flex-row space-x-96 mx-5`}>
-         
+          <ModalContent>
+          <h2 className='text-xl font-bold'>{product.attributes.name}</h2>
+            </ModalContent>
+        
             <div>
             <Typography variant="h6" className={classes.headerText}>
             Join thousands of other professionals and get personalized recommendations based on what businesses like you are using. There is no obligation to buy.
@@ -143,6 +146,8 @@ const WatchDemoModal = ({ closeModal , product }) => {
     const handleClose = () => {
       closeModal();
     };
+
+
 
     return (
       <Modal
@@ -243,13 +248,18 @@ There is no obligation to buy.
     );
   };
 
-  const ModalContent = ({ modalType, closeModal }) => {
-    if (modalType === 'watchDemo') {
-      return <WatchDemoModal closeModal={closeModal} />;
-    } else if (modalType === 'getPricing') {
-      return <GetPricingModal closeModal={closeModal} />;
-    } else {
-      return null;
+  const ModalContent = ({ modalType, closeModal, product }) => {
+    switch (modalType) {
+      case 'watchDemo':
+        return (
+          <WatchDemoModal closeModal={closeModal} product={product} />
+        );
+      case 'getPricing':
+        return (
+          <GetPricingModal closeModal={closeModal} />
+        );
+      default:
+        return null;
     }
   };
 
@@ -267,4 +277,3 @@ There is no obligation to buy.
   )(ModalContent);
 
 
-  

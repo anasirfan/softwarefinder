@@ -67,9 +67,9 @@ import {
   
       console.log(data);
   
-      const response = await fetch('/api/form', {
+      const response = await fetch('http://localhost:1337/api/forms', {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: JSON.stringify({data}),
         headers: {
           'Content-Type': 'application/json',
         },
@@ -94,7 +94,7 @@ import {
             <div item xs={12} sm={6}>
               <TextField
                 id="name"
-                name="name"
+                name="Name"
                 label="Name"
                 variant="outlined"
                 fullWidth
@@ -103,7 +103,7 @@ import {
             <div item xs={12} sm={6}>
               <TextField
                 id="phone"
-                name="phone"
+                name="Phone"
                 label="Phone"
                 variant="outlined"
                 fullWidth
@@ -112,7 +112,7 @@ import {
             <div item xs={12} sm={6}>
               <TextField
                 id="email"
-                name="email"
+                name="Email"
                 label="Email"
                 variant="outlined"
                 fullWidth
@@ -121,7 +121,7 @@ import {
             <div item xs={12} sm={6}>
               <TextField
                 id="message"
-                name="message"
+                name="Message"
                 label="Message"
                 variant="outlined"
                 fullWidth

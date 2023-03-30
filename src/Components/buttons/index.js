@@ -5,6 +5,13 @@ import { openModal } from '../../state/action-creator/index';
 import Image from 'next/image';
 import cvid1 from '../cardvid.webp';
 import { FaYoutube } from 'react-icons/fa';
+
+
+const handleOpenModal = (modalType, modalProps) => {
+  dispatch(ModalActions.showModal(modalType, modalProps));
+};
+
+
   const WatchDemoButton = ({ openModal, product }) => {
     const handleOpen = () => {
       openModal('watchDemo', product);
@@ -18,9 +25,9 @@ import { FaYoutube } from 'react-icons/fa';
       </>
     );
   };
-  const WatchDemoCard = ({ openModal, product }) => {
+ export const WatchDemoCard = ({ openModal, product }) => {
     const handleOpen = () => {
-      openModal('watchDemo');
+      openModal('watchDemo', product);
     };
 
     return (

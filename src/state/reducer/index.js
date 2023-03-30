@@ -12,7 +12,8 @@ const reducer = (state = initialState, action) => {
         ...state,
         modal: {
           isOpen: action.payload.isOpen,
-          modalType: action.payload.modalType
+          modalType: action.payload.modalType,
+          product : action.payload.product
         }
       };
     default:

@@ -11,6 +11,7 @@ import { ConnectedModal } from '@/Components/modals';
 import { MdComputer, MdOutlineTabletMac } from 'react-icons/md';
 import { ImMobile } from 'react-icons/Im';
 import { AiFillCloud } from 'react-icons/ai';
+import { WatchDemoModal, GetPricingModal, ModalContent } from '../Components/modals/index';
 
 const store = createStore(Reducer);
 const SoftwarePage = ({ openModal, products }) => {
@@ -97,7 +98,8 @@ const SoftwarePage = ({ openModal, products }) => {
                                         </div>
                                     </div>
                                         <div className='text-center my-2'>
-                                            <ConnectedWatchDemoButton  product={product} />
+                                            <ConnectedWatchDemoButton  imageUrl={`http://127.0.0.1:1337${product.attributes.image.data.attributes.url}`}/>
+                                          
                                         </div>
                                         <div className='text-center  my-2'>
                                             <ConnectedGetPricingButton  product={product} />
@@ -119,7 +121,7 @@ export default SoftwarePage
 export async function getStaticProps() {
     const res = await fetch('http://127.0.0.1:1337/api/products?populate=image,image2');
     const data = await res.json();
-    console.log(data)
+    
     return {
         props: {
             products: data.data

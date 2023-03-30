@@ -4,13 +4,14 @@ export const toggleModal = (isOpen, modalType) => {
     payload: {
       isOpen,
       modalType
+      
     },
   };
 };
 
 
-export const openModal = (modalType) => {
-  return toggleModal(true, modalType);
+export const openModal = (modalType, product) => {
+  return toggleModal(true, modalType ,product);
 };
 
 export const closeModal = () => {
